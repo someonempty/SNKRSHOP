@@ -1,0 +1,34 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  align-items: center;
+  min-height: 81px;
+  border-bottom: 1px solid #CFCFCF;
+}
+
+.main-header img {
+  cursor: pointer;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 60px 170px 233px 170px;
+  width: 1230px;
+  border-right: 1px solid #E7E7E7;;
+}
+
+.catalog-element {
+  margin-bottom: 50px;
+  height: 300px;
+  width: 250px;
+  border: 1px solid #E7E7E7;
+}
