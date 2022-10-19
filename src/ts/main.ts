@@ -28,6 +28,17 @@ const Element = () => {
     const inputWrapper = document.createElement('div');
     const promoInput = document.createElement('input');
     const promoButton = document.createElement('button');
+    const total = document.createElement('div');
+    const totalTitlesWrapper = document.createElement('div');
+    const subtotal = document.createElement('span');
+    const tax = document.createElement('span');
+    const shipping = document.createElement('span');
+    const totalTitle = document.createElement('span');
+    const totalPricesWrapper = document.createElement('div');
+    const subtotalPrice = document.createElement('span');
+    const taxPrice = document.createElement('span');
+    const shippingPrice = document.createElement('span');
+    const totalTitlePrice = document.createElement('span');
 
     sneakersImage.alt="vintage brights sneakers";
     sneakersImage.src="src/img/vintage.png";
@@ -46,6 +57,14 @@ const Element = () => {
     basketPrice.innerText = '$ 650';
     promoTitle.innerText = 'Promo code';
     promoButton.innerText = 'Apply';
+    subtotal.innerText = 'Subtotal';
+    tax.innerText = 'Tax';
+    shipping.innerText = 'Shipping';
+    totalTitle.innerText = 'Total';
+    subtotalPrice.innerText = '$ 1 850';
+    taxPrice.innerText = '$ 100';
+    shippingPrice.innerText = '$ 150';
+    totalTitlePrice.innerText = '$ 2 100';
 
     main.classList.add('catalog');
     catalogElement.classList.add('catalog-element');
@@ -70,6 +89,17 @@ const Element = () => {
     promoTitle.classList.add('promo-title');
     promoInput.classList.add('promo-input');
     promoButton.classList.add('promo-button');
+    total.classList.add('total');
+    totalTitlesWrapper.classList.add('total-titles-wrapper');
+    subtotal.classList.add('subtotal');
+    tax.classList.add('tax');
+    shipping.classList.add('shipping');
+    totalTitle.classList.add('total-title');
+    totalPricesWrapper.classList.add('total-prices-wrapper');
+    subtotalPrice.classList.add('subtotal-price');
+    taxPrice.classList.add('tax-price');
+    shippingPrice.classList.add('shipping-price');
+    totalTitlePrice.classList.add('total-title-price');
 
     wrapper?.appendChild(main);
     main.appendChild(catalogElement);
@@ -96,7 +126,11 @@ const Element = () => {
     promo.appendChild(inputWrapper);
     inputWrapper.appendChild(promoInput);
     inputWrapper.appendChild(promoButton);
-
+    aside.appendChild(total);
+    total.appendChild(totalTitlesWrapper);
+    totalTitlesWrapper.append(subtotal, tax, shipping, totalTitle);
+    total.appendChild(totalPricesWrapper);
+    totalPricesWrapper.append(subtotalPrice, taxPrice, shippingPrice, totalTitlePrice);
 }
 
 Element();
