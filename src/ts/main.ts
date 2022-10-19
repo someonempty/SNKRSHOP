@@ -8,27 +8,33 @@ const Element = () => {
     const catalogElement = document.createElement('div');
     const sneakersName = document.createElement('div');
     const basketPriceWrapper = document.createElement('div');
-    const sneakersImage = document.createElement('img');
-    const whiteBasket = document.createElement('img');
-    const basketElementImage = document.createElement('img');
-    const deleteBasketItem = document.createElement('img');
-    const price = document.createElement('span');
     const basket = document.createElement('div');
     const title = document.createElement('div');
     const basketElement = document.createElement('div');
     const basketItemInfoWrapper = document.createElement('div');
     const basketSneakersName = document.createElement('div');
     const plusWrapper = document.createElement('div');
+    const promo = document.createElement('div');
+    const promoTitle = document.createElement('div');
+    const sneakersImage = document.createElement('img');
+    const whiteBasket = document.createElement('img');
+    const basketElementImage = document.createElement('img');
+    const deleteBasketItem = document.createElement('img');
+    const price = document.createElement('span');
     const minus = document.createElement('span');
     const quantity = document.createElement('span');
     const plus = document.createElement('span');
     const basketPrice = document.createElement('span');
+    const inputWrapper = document.createElement('div');
+    const promoInput = document.createElement('input');
+    const promoButton = document.createElement('button');
 
     sneakersImage.alt="vintage brights sneakers";
     sneakersImage.src="src/img/vintage.png";
     whiteBasket.src="src/icons/white-basket.svg";
     basketElementImage.src="src/img/vintage.png";
     deleteBasketItem.src="src/icons/delete.svg";
+    promoInput.placeholder="Placeholder Text";
 
     basketSneakersName.innerHTML = 'New Balance 574 Vintage<br>Brights';
     price.innerText = '$ 650';
@@ -38,6 +44,8 @@ const Element = () => {
     quantity.innerText = '1';
     plus.innerText = '+';
     basketPrice.innerText = '$ 650';
+    promoTitle.innerText = 'Promo code';
+    promoButton.innerText = 'Apply';
 
     main.classList.add('catalog');
     catalogElement.classList.add('catalog-element');
@@ -58,6 +66,10 @@ const Element = () => {
     basketPrice.classList.add('price');
     deleteBasketItem.classList.add('delete-basket-item');
     basketElementImage.classList.add('basket-element-image');
+    promo.classList.add('promo');
+    promoTitle.classList.add('promo-title');
+    promoInput.classList.add('promo-input');
+    promoButton.classList.add('promo-button');
 
     wrapper?.appendChild(main);
     main.appendChild(catalogElement);
@@ -79,6 +91,11 @@ const Element = () => {
     plusWrapper.appendChild(basketPrice);
     wrapper?.appendChild(aside);
     basketElement.appendChild(deleteBasketItem);
+    aside.appendChild(promo);
+    promo.appendChild(promoTitle);
+    promo.appendChild(inputWrapper);
+    inputWrapper.appendChild(promoInput);
+    inputWrapper.appendChild(promoButton);
 
 }
 
