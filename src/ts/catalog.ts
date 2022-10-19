@@ -1,5 +1,15 @@
 export const Catalog = () => {
-    const mainCatalog = document.createElement('main');
-    mainCatalog.classList.add('catalog');
+    const wrapper = document.createElement('div');
+    const main = document.createElement('main');
+
+    wrapper.classList.add('wrapper');
+    main.classList.add('catalog');
+    main.innerHTML = 'hey!';
+
+    console.log('good!');
+
+    wrapper.appendChild(main);
+    console.log(main);
+
 }
 

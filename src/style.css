@@ -96,6 +96,10 @@
   width: 330px;
 }
 
+.basket-element:not(:last-child) {
+  margin-bottom: 40px;
+}
+
 .basket-sneakers-name {
   font-family: 'Roboto';
   font-weight: 400;
@@ -180,8 +184,59 @@
   height: 40px;
   background-color: #3366FF;
   border: none;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #FFFFFF;
 }
 
 .input-wrapper {
   width: 410px;
+}
+
+
+
+/* -----------------------------Итого------------------------- */
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 55px 0px 40px;
+}
+
+.total-titles-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-prices-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-titles-wrapper span, .total-prices-wrapper span {
+  margin-bottom: 15px;
+}
+
+.total-title, .total-title-price {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 34px;
+}
+
+.basket-icon::before{
+  height: 25px;
+  width: 25px;
+  background-color: #3366FF;
+  border-radius: 50%;
+  display: inline-block;
+  right: 50px;
+}
+
+
+@media (max-width: 1250px) {
+  .catalog {
+      padding: 60px 110px 0px 110px;
+  }
 }

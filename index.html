@@ -11,10 +11,11 @@
 
      <header class="main-header">
       <img src="src/icons/logo.svg" alt="logo.">
-      <img src="src/icons/basket.svg" alt="backet.">
+      <img class="basket-icon" src="src/icons/basket.svg" alt="backet.">
     </header>
 
-    
+    <!-- <div class="wrapper"></div>
+    <aside class="aside"></aside> -->
     <div class="wrapper">
       <main class="catalog">
         <div class="catalog-element">
@@ -22,7 +23,7 @@
           <div class="sneakers-name">New Balance 574 Vintage Brights</div>
   
           <div class="basket-price-wrapper">
-            <img src="src/icons/white-basket.svg" alt="basket">
+            <img class='white-basket' src="src/icons/white-basket.svg" alt="basket">
           <span class="price">$ 650</span>
           </div>
   
@@ -95,6 +96,19 @@
             </div>
             </basket-item-info-wrapper>
           </div>
+
+          <div class="basket-element">
+            <img src="src/img/chinese.png" alt="chinese new year brown sneakers">
+            <basket-item-info-wrapper>
+              <div class="basket-sneakers-name">New Balance 574 Vintage<br>Brights</div>
+            <div class="plus-wrapper">
+              <span class="minus">-</span>
+            <span class="quantity">1</span>
+            <span class="plus">+</span>
+            <span class="price">$ 1200</span>
+            </div>
+            </basket-item-info-wrapper>
+          </div>
         </div>
 
         <div class="promo">
@@ -103,6 +117,24 @@
               <input class="promo-input" type="text" placeholder="Placeholder Text">
               <button class="promo-button">Apply</button>
           </div>
+        </div>
+
+        <div class="total">
+
+          <div class="total-titles-wrapper">
+            <span class="subtotal">Subtotal</span>
+          <span class="tax">Tax</span>
+          <span class="shipping">Shipping</span>
+          <span class="total-title">Total</span>
+          </div>
+
+          <div class="total-prices-wrapper">
+            <span class="subtotal-price">$ 1 850</span>
+            <span class="tax-price">$ 100</span>
+            <span class="shipping-price">$ 150</span>
+            <span class="total-title-price">$ 2 100</span>
+          </div>
+
         </div>
       </aside>
     </div>
