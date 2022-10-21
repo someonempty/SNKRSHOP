@@ -22,6 +22,13 @@ export const Promo = () => {
     promoInput.classList.add('promo-input');
     promoButton.classList.add('promo-button');
     aside.appendChild(promo);
+
+    if(promoInput.value === '1234') {
+        return true;
+    } 
+    else {
+        return false;
+    }
 }
 
             

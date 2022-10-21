@@ -1,10 +1,10 @@
 import '../style.css';
-import { render } from './catalogRender';
+import { catalogRender } from './catalog';
 import { Total } from './total';
-import { Basket } from './basket';
+import { basketRender } from './basket';
 import { Promo } from './promo';
 
-render();
-Basket();
-Promo();
+catalogRender();
+basketRender();
+Promo(); 
 Total();

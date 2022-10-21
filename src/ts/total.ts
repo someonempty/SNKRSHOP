@@ -18,9 +18,10 @@ export const Total = () => {
     tax.innerText = 'Tax';
     shipping.innerText = 'Shipping';
     totalTitle.innerText = 'Total';
+    subtotalPrice.innerText = '$ 1 850';
     taxPrice.innerText = '$ 100';
     shippingPrice.innerText = '$ 150';
-    totalTitlePrice.innerText = '$ 900';
+    totalTitlePrice.innerText = '$ 2 100';
 
     total.appendChild(totalTitlesWrapper);
     totalTitlesWrapper.append(subtotal, tax, shipping, totalTitle);
