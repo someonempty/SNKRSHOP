@@ -29,6 +29,4 @@ export const Promo = () => {
     else {
         return false;
     }
-}
-
-            
+}     

@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto' sans-serif;
 }
 
 
@@ -95,7 +96,7 @@
   display: flex;
   height: 100px;
   width: 330px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .basket-element:not(:last-child) {
@@ -177,6 +178,7 @@
   width: 40px;
   background: url(src/icons/white-basket.svg) no-repeat;
   border: none;
+  cursor: pointer;
 }
 
 

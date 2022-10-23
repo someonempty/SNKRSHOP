@@ -1,3 +1,6 @@
+     import { Promo } from './promo';
+     import { Total } from './total';
+
      const wrapper = document.querySelector('.wrapper');
      const aside:any = document.querySelector('.aside');
      const basket = document.createElement('div');
@@ -5,7 +8,7 @@
      basket.appendChild(title);
      title.classList.add('title');
 
-     const Basket = (name:any, price:any, src:any) => {
+     const Basket = (id:any, name:any, price:any, src:any, onDelete:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -27,6 +30,7 @@
      
      basketElementImage.src = src;
      deleteBasketItem.src="src/icons/delete.svg";
+     basketElement.id = id;
      
      aside?.appendChild(basket);
      basket.appendChild(basketElement);
@@ -53,13 +57,38 @@
      plusWrapper.classList.add('plus-wrapper');
      basketPrice.classList.add('price');
 
+     deleteBasketItem.onclick = onDelete;
+
      }
 
-     const basketElements = [{name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png'}, {name: 'New Balance Made in UK 920<br>Chinese New Year', price: 1200, src: 'src/img/chinese.png'}];
+     let basketElements = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: '650', src: 'src/img/vintage.png'}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: '1 200', src: 'src/img/chinese.png'}];
+
+     // export const addBasketItem = () => {
+     //      basketElements = basketElements.push();
+     //  }
+
+     const deleteBasketItem = (id:any) => {
+     
+          basketElements = basketElements.filter((element:any) => element.id !== id);
+          aside.innerHTML = '';
+          basketRender();
+          Promo();
+          Total();
+          
+      }
+
 
      export const basketRender = () => {
-          aside.innerHTML = '';
-          basketElements.forEach((element: { name: any; price: any; src: any}) => {
-        Basket(element.name, element.price, element.src);
+          basket.innerHTML = '';
+          basketElements.forEach((element: {id:any; name: any; price: any; src: any}) => {
+        Basket(element.id,
+          element.name,
+           element.price,
+            element.src,
+            () => deleteBasketItem(element.id),
+            );
+            console.log(basketElements);
      })
 }
+
+
