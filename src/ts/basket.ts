@@ -6,7 +6,6 @@
      const basket = document.createElement('div');
      const title = document.createElement('div');
      basket.appendChild(title);
-     title.classList.add('title');
 
      const Basket = (id:any, name:any, price:any, src:any, onDelete:any) => {
 
@@ -63,9 +62,7 @@
 
      let basketElements = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: '650', src: 'src/img/vintage.png'}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: '1 200', src: 'src/img/chinese.png'}];
 
-     // export const addBasketItem = () => {
-     //      basketElements = basketElements.push();
-     //  }
+
 
      const deleteBasketItem = (id:any) => {
      
@@ -81,14 +78,15 @@
      export const basketRender = () => {
           basket.innerHTML = '';
           basketElements.forEach((element: {id:any; name: any; price: any; src: any}) => {
-        Basket(element.id,
+          Basket(element.id,
           element.name,
-           element.price,
-            element.src,
-            () => deleteBasketItem(element.id),
-            );
-            console.log(basketElements);
-     })
-}
+          element.price,
+          element.src,
+          () => deleteBasketItem(element.id),
+          );
+          console.log(basketElements);
+          })
+     }
+     
 
 

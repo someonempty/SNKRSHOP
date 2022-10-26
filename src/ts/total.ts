@@ -40,3 +40,4 @@ export const Total = () => {
     totalTitlePrice.classList.add('total-title-price');
     aside.appendChild(total);
 }
+
