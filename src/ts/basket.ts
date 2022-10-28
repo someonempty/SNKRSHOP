@@ -63,7 +63,6 @@
      let basketElements = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: '650', src: 'src/img/vintage.png'}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: '1 200', src: 'src/img/chinese.png'}];
 
 
-
      const deleteBasketItem = (id:any) => {
      
           basketElements = basketElements.filter((element:any) => element.id !== id);
@@ -71,7 +70,6 @@
           basketRender();
           Promo();
           Total();
-          
       }
 
 
@@ -84,7 +82,6 @@
           element.src,
           () => deleteBasketItem(element.id),
           );
-          console.log(basketElements);
           })
      }
      
