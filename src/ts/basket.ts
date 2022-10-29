@@ -1,13 +1,11 @@
-     import { Promo } from './promo';
-     import { Total } from './total';
-
+     
      const wrapper = document.querySelector('.wrapper');
      const aside:any = document.querySelector('.aside');
      const basket = document.createElement('div');
      const title = document.createElement('div');
      basket.appendChild(title);
 
-     const Basket = (id:any, name:any, price:any, src:any, onDelete:any) => {
+     const Basket = (id:any, name:any, price:any, src:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -55,35 +53,29 @@
      basketSneakersName.classList.add('basket-sneakers-name');
      plusWrapper.classList.add('plus-wrapper');
      basketPrice.classList.add('price');
-
-     deleteBasketItem.onclick = onDelete;
-
      }
 
-     let basketElements = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: '650', src: 'src/img/vintage.png'}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: '1 200', src: 'src/img/chinese.png'}];
-
-
-     const deleteBasketItem = (id:any) => {
-     
-          basketElements = basketElements.filter((element:any) => element.id !== id);
-          aside.innerHTML = '';
-          basketRender();
-          Promo();
-          Total();
-      }
-
-
-     export const basketRender = () => {
+     export const basketRender = (array:any) => {
           basket.innerHTML = '';
-          basketElements.forEach((element: {id:any; name: any; price: any; src: any}) => {
+          array.forEach((element: {id:any; name: any; price: any; src: any}) => {
           Basket(element.id,
           element.name,
           element.price,
-          element.src,
-          () => deleteBasketItem(element.id),
+          element.src
           );
           })
      }
+
+
+
+
+
+
+      // const deleteBasketItem = (id:any) => {
      
-
-
+     //      basketElements = basketElements.filter((element:any) => element.id !== id);
+     //      aside.innerHTML = '';
+     //      basketRender();
+     //      Promo();
+     //      Total();
+     //  }
