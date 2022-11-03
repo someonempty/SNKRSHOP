@@ -1,7 +1,7 @@
 const aside:any = document.querySelector('.aside');
 
-export const Total = () => {
-
+export const Total = () => { 
+    // subtotalProps:any, taxProps:any = 100, shippingProps:any = 150, totalProps:any
     const total = document.createElement('div');
     const subtotal = document.createElement('span');
     const tax = document.createElement('span');

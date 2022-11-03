@@ -1,7 +1,8 @@
     const wrapper = document.querySelector('.wrapper');
-    const main = document.createElement('main');
+    export const main = document.createElement('main');
 
-    const Card = (name:any, pricer:any, src:any) => {
+    export const Card = (name:any, pricer:any, src:any, onAdd:any) => {
+
     const priceWrapper = document.createElement('div');
     const catalogElement = document.createElement('div');
     const sneakersName = document.createElement('div');
@@ -31,12 +32,14 @@
     priceWrapper.appendChild(basketButton);
     priceWrapper.appendChild(price);
 
-    return main;
+    basketButton.onclick = onAdd;
+    
 }
 
-export const cardRender = (array:any) => {
-    main.innerHTML = '';
-    array.forEach((element: { name: any; price: any; src: any}) => {
-        Card(element.name, element.price, element.src);
-    });
-}
+
+// export const cardRender = (array:any) => {
+//     main.innerHTML = '';
+//     array.forEach((element: { name: any; price: any; src: any}) => {
+//         Card(element.name, element.price, element.src);
+//     });
+// }

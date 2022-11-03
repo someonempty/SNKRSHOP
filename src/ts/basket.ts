@@ -5,7 +5,7 @@
      const title = document.createElement('div');
      basket.appendChild(title);
 
-     const Basket = (id:any, name:any, price:any, src:any) => {
+     export const Basket = (id:any, name:any, price:any, src:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -55,16 +55,16 @@
      basketPrice.classList.add('price');
      }
 
-     export const basketRender = (array:any) => {
-          basket.innerHTML = '';
-          array.forEach((element: {id:any; name: any; price: any; src: any}) => {
-          Basket(element.id,
-          element.name,
-          element.price,
-          element.src
-          );
-          })
-     }
+     // export const basketRender = (array?:any) => {
+     //      basket.innerHTML = '';
+     //      array.forEach((element: {id:any; name: any; price: any; src: any}) => {
+     //      Basket(element.id,
+     //      element.name,
+     //      element.price,
+     //      element.src
+     //      );
+     //      })
+     // }
 
 
 
