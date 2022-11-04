@@ -94,6 +94,23 @@
   margin-bottom: 30px;
 }
 
+.basket-title-wrapper {
+  display: flex;
+  margin-bottom: 30px;
+  width: 100%;
+  margin-left: 40px;
+}
+
+.basket-title {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+
+
+color: #000000;
+}
+
 .basket-element {
   display: flex;
   height: 100px;

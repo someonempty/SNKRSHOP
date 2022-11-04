@@ -2,10 +2,16 @@
      const wrapper = document.querySelector('.wrapper');
      const aside:any = document.querySelector('.aside');
      const basket = document.createElement('div');
-     const title = document.createElement('div');
+     export const title = document.createElement('div');
      basket.appendChild(title);
+     const titleWrapper = document.createElement('div');
+     titleWrapper.appendChild(title);
+     aside.appendChild(titleWrapper);
+     titleWrapper.classList.add('basket-title-wrapper');
 
      export const Basket = (id:any, name:any, price:any, src:any, onDelete:any) => {
+
+    
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -53,6 +59,7 @@
      basketSneakersName.classList.add('basket-sneakers-name');
      plusWrapper.classList.add('plus-wrapper');
      basketPrice.classList.add('price');
+     title.classList.add('basket-title');
 
      deleteBasketItem.onclick = onDelete;
      }

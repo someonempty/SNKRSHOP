@@ -5,7 +5,6 @@ import { Basket } from './basket';
 import { Promo } from './promo';
 import { main } from './catalog';
 
-
 const aside:any = document.querySelector('.aside');
 
 type Sneaker = {id: number, name: string, price: string, src: string};
