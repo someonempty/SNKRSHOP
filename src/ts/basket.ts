@@ -5,7 +5,7 @@
      const title = document.createElement('div');
      basket.appendChild(title);
 
-     export const Basket = (id:any, name:any, price:any, src:any) => {
+     export const Basket = (id:any, name:any, price:any, src:any, onDelete:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -53,6 +53,8 @@
      basketSneakersName.classList.add('basket-sneakers-name');
      plusWrapper.classList.add('plus-wrapper');
      basketPrice.classList.add('price');
+
+     deleteBasketItem.onclick = onDelete;
      }
 
      // export const basketRender = (array?:any) => {
