@@ -1,6 +1,9 @@
-const aside:any = document.querySelector('.aside');
+// import { aside } from "./main";
+
+export const aside:any = document.querySelector('.aside');
 
 export const Promo = () => {
+
     const promo = document.createElement('div');
     const promoTitle = document.createElement('div');
     const inputWrapper = document.createElement('div');
@@ -23,10 +26,5 @@ export const Promo = () => {
     promoButton.classList.add('promo-button');
     aside.appendChild(promo);
 
-    if(promoInput.value === '1234') {
-        return true;
-    } 
-    else {
-        return false;
-    }
+    return promo;
 }     

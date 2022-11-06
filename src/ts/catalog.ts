@@ -1,5 +1,7 @@
-    const wrapper = document.querySelector('.wrapper');
-    export const main = document.createElement('main');
+    // import { wrapper } from "./main";
+    // import { main } from "./main";
+    const wrapper:any = document.querySelector('.wrapper');
+    const main:any = document.createElement('main');
 
     export const Card = (name:any, pricer:any, src:any, onAdd:any) => {
 
@@ -10,17 +12,16 @@
     const basketButton = document.createElement('button');
     const price = document.createElement('span');
     
-    // sneakersImage.alt="vintage brights sneakers";
     sneakersImage.src = src;
-    
     sneakersName.innerText = name;
     price.innerText = pricer;
+    basketButton.onclick = onAdd;
     
     main.classList.add('catalog');
     catalogElement.classList.add('catalog-element');
     sneakersImage.classList.add('sneakers-image');
     sneakersName.classList.add('sneakers-name');
-    priceWrapper.classList.add('price-wrapper')
+    priceWrapper.classList.add('price-wrapper');
     basketButton.classList.add('basket-button');
     price.classList.add('price');
     
@@ -31,9 +32,8 @@
     catalogElement.appendChild(priceWrapper);
     priceWrapper.appendChild(basketButton);
     priceWrapper.appendChild(price);
-
-    basketButton.onclick = onAdd;
     
+    return main;
 }
 
 
@@ -43,3 +43,5 @@
 //         Card(element.name, element.price, element.src);
 //     });
 // }
+
+// НЕ ЗАБЫТЬ ДОБАВИТЬ АЛЬТЫ ДЛЯ КАРТИНОК

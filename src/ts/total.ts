@@ -1,7 +1,9 @@
-const aside:any = document.querySelector('.aside');
+// import { aside } from "./main";
 
-export const Total = () => { 
-    // subtotalProps:any, taxProps:any = 100, shippingProps:any = 150, totalProps:any
+export const aside:any = document.querySelector('.aside');
+
+export const Total = (subtotalProps:any, taxProps:any = 100, shippingProps:any = 150) => { 
+
     const total = document.createElement('div');
     const subtotal = document.createElement('span');
     const tax = document.createElement('span');
@@ -18,10 +20,13 @@ export const Total = () => {
     tax.innerText = 'Tax';
     shipping.innerText = 'Shipping';
     totalTitle.innerText = 'Total';
-    subtotalPrice.innerText = '$ 1 850';
-    taxPrice.innerText = '$ 100';
-    shippingPrice.innerText = '$ 150';
-    totalTitlePrice.innerText = '$ 2 100';
+
+    subtotalPrice.innerText = '$ ' + subtotalProps;
+    taxPrice.innerText = '$ ' + taxProps;
+    shippingPrice.innerText = '$ ' + shippingProps;
+    const totalProps = subtotalProps + taxProps + shippingProps;
+    totalTitlePrice.innerText = totalProps;
+    
 
     total.appendChild(totalTitlesWrapper);
     totalTitlesWrapper.append(subtotal, tax, shipping, totalTitle);
@@ -39,5 +44,7 @@ export const Total = () => {
     shippingPrice.classList.add('shipping-price');
     totalTitlePrice.classList.add('total-title-price');
     aside.appendChild(total);
+
+    return total;
 }
 
