@@ -1,6 +1,3 @@
-// import { aside } from "./main";
-
-export const aside:any = document.querySelector('.aside');
 
 export const Total = (subtotalProps:any, taxProps:any = 100, shippingProps:any = 150) => { 
 
@@ -43,7 +40,6 @@ export const Total = (subtotalProps:any, taxProps:any = 100, shippingProps:any =
     taxPrice.classList.add('tax-price');
     shippingPrice.classList.add('shipping-price');
     totalTitlePrice.classList.add('total-title-price');
-    aside.appendChild(total);
 
     return total;
 }

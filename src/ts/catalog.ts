@@ -1,8 +1,4 @@
-    // import { wrapper } from "./main";
-    // import { main } from "./main";
-    const wrapper:any = document.querySelector('.wrapper');
-    const main:any = document.createElement('main');
-
+ 
     export const Card = (name:any, pricer:any, src:any, onAdd:any) => {
 
     const priceWrapper = document.createElement('div');
@@ -17,7 +13,6 @@
     price.innerText = pricer;
     basketButton.onclick = onAdd;
     
-    main.classList.add('catalog');
     catalogElement.classList.add('catalog-element');
     sneakersImage.classList.add('sneakers-image');
     sneakersName.classList.add('sneakers-name');
@@ -25,15 +20,13 @@
     basketButton.classList.add('basket-button');
     price.classList.add('price');
     
-    wrapper?.appendChild(main);
-    main.appendChild(catalogElement);
     catalogElement.appendChild(sneakersImage);
     catalogElement.appendChild(sneakersName);
     catalogElement.appendChild(priceWrapper);
     priceWrapper.appendChild(basketButton);
     priceWrapper.appendChild(price);
     
-    return main;
+    return catalogElement;
 }
 
 

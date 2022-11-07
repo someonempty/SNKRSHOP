@@ -1,6 +1,3 @@
-// import { aside } from "./main";
-
-export const aside:any = document.querySelector('.aside');
 
 export const Promo = () => {
 
@@ -24,7 +21,6 @@ export const Promo = () => {
     promoTitle.classList.add('promo-title');
     promoInput.classList.add('promo-input');
     promoButton.classList.add('promo-button');
-    aside.appendChild(promo);
 
     return promo;
 }     
