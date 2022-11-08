@@ -1,5 +1,5 @@
 
-     export const Basket = (id:any, name:any, price:any, src:any, onDelete:any) => {
+     export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
