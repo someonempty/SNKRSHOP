@@ -108,9 +108,10 @@
   color: #000000;
 }
 
-/* .basket-list {
+.basket-list {
+  height: 280px;
   overflow: auto;
-} */
+}
 
 .basket-element {
   display: flex;
