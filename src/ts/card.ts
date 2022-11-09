@@ -28,13 +28,4 @@
     
     return catalogElement;
 }
-
-
-// export const cardRender = (array:any) => {
-//     main.innerHTML = '';
-//     array.forEach((element: { name: any; price: any; src: any}) => {
-//         Card(element.name, element.price, element.src);
-//     });
-// }
-
 // НЕ ЗАБЫТЬ ДОБАВИТЬ АЛЬТЫ ДЛЯ КАРТИНОК
