@@ -18,7 +18,6 @@ let basketElements:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage<br>Bright
 const addBasketItem = (id:any, name:any, price:any, src:any) => {
     basketElements.push({id, name, price, src});
     basketlist.innerHTML = '';
-    // basketElements = basketElements.filter(element => element.id !== id);
     basketRender();
     totalRender();
 }
@@ -52,14 +51,13 @@ const totalRender = () => {
     totalWrapper.appendChild(Total(total));
 }
 
-function deleteBasketItem(id:any) {
+const deleteBasketItem = (id:any) => {
     basketElements = basketElements.filter(element => element.id !== id);
     basketRender();
     totalRender();
 }
 
 const render = () => {
-    // aside.innerHTML = '';
     main.innerHTML = '';
     catalogRender();
     basketRender();
