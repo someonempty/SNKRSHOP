@@ -1,5 +1,5 @@
 
-     export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any) => {
+     export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any, count:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -13,13 +13,13 @@
      const deleteBasketItem = document.createElement('img');
 
      minus.innerText = '-';
-     quantity.innerText = '1';
+     quantity.innerText = count;
      plus.innerText = '+';
      deleteBasketItem.src="src/icons/delete.svg";
      
      basketElement.id = id;
      basketSneakersName.innerHTML = name;
-     basketPrice.innerText = '$ ' + price;
+     basketPrice.innerText = '$ ' + (price * count);
      basketElementImage.src = src;
      deleteBasketItem.onclick = onDelete;
      

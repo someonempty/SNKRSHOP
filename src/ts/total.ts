@@ -1,5 +1,5 @@
 
-export const Total = (subtotalProps:any, taxProps:any = 100, shippingProps:any = 150) => { 
+export const Total = (subtotalProps:any, taxProps:number = 100, shippingProps:number = 150) => { 
 
     const total = document.createElement('div');
     const subtotal = document.createElement('span');
