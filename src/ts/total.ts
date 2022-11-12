@@ -13,17 +13,22 @@ export const Total = (subtotalProps:any, taxProps:number = 100, shippingProps:nu
     const totalPricesWrapper = document.createElement('div');
     const totalTitlesWrapper = document.createElement('div');
 
+    if (!subtotalProps) {
+        taxProps = 0;
+        shippingProps = 0;
+    }
+
     subtotal.innerText = 'Subtotal';
     tax.innerText = 'Tax';
     shipping.innerText = 'Shipping';
     totalTitle.innerText = 'Total';
 
-    subtotalPrice.innerText = '$ ' + subtotalProps;
-    taxPrice.innerText = '$ ' + taxProps;
-    shippingPrice.innerText = '$ ' + shippingProps;
+    subtotalPrice.innerText = '$ ' + subtotalProps.toLocaleString('ru');
+    taxPrice.innerText = '$ ' + taxProps.toLocaleString('ru');
+    shippingPrice.innerText = '$ ' + shippingProps.toLocaleString('ru');
     const totalProps = subtotalProps + taxProps + shippingProps;
-    totalTitlePrice.innerText = totalProps;
-    
+    totalTitlePrice.innerText = '$ ' + totalProps.toLocaleString('ru');
+
 
     total.appendChild(totalTitlesWrapper);
     totalTitlesWrapper.append(subtotal, tax, shipping, totalTitle);

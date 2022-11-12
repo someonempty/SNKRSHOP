@@ -16,7 +16,7 @@
      quantity.innerText = count;
      plus.innerText = '+';
      deleteBasketItem.src="src/icons/delete.svg";
-     
+
      basketElement.id = id;
      basketSneakersName.innerHTML = name;
      basketPrice.innerText = '$ ' + (price * count);

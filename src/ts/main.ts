@@ -25,9 +25,11 @@ const addBasketItem = (id:number, name:string, price:number, src:string, count:n
     basketlist.innerHTML = '';
     basketRender();
     totalRender();
+    // basketElements.filter(element => element.id !== id);
+    // console.log(basketElements);
 }
 
-const catalogRender = () => { 
+const cardRender = () => { 
     sneakers.forEach(sneaker => {
         main.appendChild(Card(sneaker.name, sneaker.price, sneaker.src, () => addBasketItem(sneaker.id, sneaker.name, sneaker.price, sneaker.src, sneaker.count))
     )})
@@ -63,7 +65,7 @@ const deleteBasketItem = (id:any) => {
 
 const render = () => {
     main.innerHTML = '';
-    catalogRender();
+    cardRender();
     basketRender();
     promoRender();
     totalRender();
