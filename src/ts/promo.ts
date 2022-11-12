@@ -1,11 +1,18 @@
 
 export const Promo = () => {
+    // discount:any
 
     const promo = document.createElement('div');
     const promoTitle = document.createElement('div');
     const inputWrapper = document.createElement('div');
     const promoInput = document.createElement('input');
     const promoButton = document.createElement('button');
+
+    // if (promoInput.value === 'bober') {
+    //     const discount = (total:any) => {
+    //         total -= 3
+    //     }
+    // }
 
     promoTitle.innerText = 'Promo code';
     promoButton.innerText = 'Apply';

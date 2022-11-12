@@ -5,6 +5,9 @@
   font-family: 'Roboto' sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
 
 
 /* -----------------------------Шапка------------------------- */
@@ -75,7 +78,7 @@
 
 /* -----------------------------Корзина------------------------- */
 .basket {
-  width: 410px;
+  width: 450px;
   height: 371px;
   padding: 40px;
   font-family: 'Roboto';

@@ -23,10 +23,10 @@ const addBasketItem = (id:number, name:string, price:number, src:string, count:n
     
     basketElements.push({id, name, price, src, count});
     basketlist.innerHTML = '';
+    basketElements.filter(element => element.name !== name);
+    console.log(basketElements);
     basketRender();
     totalRender();
-    // basketElements.filter(element => element.id !== id);
-    // console.log(basketElements);
 }
 
 const cardRender = () => { 
@@ -42,6 +42,10 @@ const basketRender = () => {
      )})
 
 }
+
+// const discount = () => {
+
+// }
 
 const promoRender = () => {
     promoWrapper.innerHTML = '';
