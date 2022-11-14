@@ -1,6 +1,8 @@
 
 export const Total = (subtotalProps:any, taxProps:number = 100, shippingProps:number = 150) => { 
 
+    // , discount:any
+
     const total = document.createElement('div');
     const subtotal = document.createElement('span');
     const tax = document.createElement('span');
@@ -17,6 +19,10 @@ export const Total = (subtotalProps:any, taxProps:number = 100, shippingProps:nu
         taxProps = 0;
         shippingProps = 0;
     }
+
+    // if (discount) {
+    //     totalTitlePrice -= 300
+    // }
 
     subtotal.innerText = 'Subtotal';
     tax.innerText = 'Tax';

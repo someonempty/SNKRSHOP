@@ -16,17 +16,26 @@ const sneakers:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage Brights', pri
 let basketElements:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png', count: 1}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1}];
 
 const addBasketItem = (id:number, name:string, price:number, src:string, count:number) => {
-       
-    basketElements.forEach(element => {
-         return element.id === id ? element.count++ : element
+
+    const isThereDuplicate = basketElements.some(element => {
+        return element.id === id
+
     })
+
+    if (isThereDuplicate) {
+        basketElements.forEach(element => {
+            element.id === id ? element.count++ : element
+            basketRender();
+            totalRender();
+       })
+    }
+    else {
+        basketElements.push({id, name, price, src, count});
+        basketlist.innerHTML = '';
+        basketRender();
+        totalRender();
+    }
     
-    basketElements.push({id, name, price, src, count});
-    basketlist.innerHTML = '';
-    basketElements.filter(element => element.name !== name);
-    console.log(basketElements);
-    basketRender();
-    totalRender();
 }
 
 const cardRender = () => { 
@@ -44,7 +53,8 @@ const basketRender = () => {
 }
 
 // const discount = () => {
-
+//     const total = 0;
+//     total 
 // }
 
 const promoRender = () => {
