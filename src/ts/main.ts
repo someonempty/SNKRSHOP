@@ -15,28 +15,43 @@ const sneakers:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage Brights', pri
 
 let basketElements:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png', count: 1}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1}];
 
+// const addBasketItem = (id:number, name:string, price:number, src:string, count:number) => {
+
+//     const isThereDuplicate = basketElements.some(element => {
+//         return element.id === id
+
+//     })
+
+//     if (isThereDuplicate) {
+//         basketElements.forEach(element => {
+//             element.id === id ? element.count++ : element
+//             basketRender();
+//             totalRender();
+//        })
+//     }
+//     else {
+//         basketElements.push({id, name, price, src, count});
+//         basketlist.innerHTML = '';
+//         basketRender();
+//         totalRender();
+//     }
+    
+// }
+
 const addBasketItem = (id:number, name:string, price:number, src:string, count:number) => {
 
-    const isThereDuplicate = basketElements.some(element => {
-        return element.id === id
-
-    })
-
-    if (isThereDuplicate) {
-        basketElements.forEach(element => {
-            element.id === id ? element.count++ : element
-            basketRender();
-            totalRender();
-       })
-    }
-    else {
-        basketElements.push({id, name, price, src, count});
-        basketlist.innerHTML = '';
+    basketElements.forEach(element => {
+        element.id === id ? element.count++ : element
         basketRender();
         totalRender();
-    }
-    
+   })
+
+    basketElements.push({id, name, price, src, count});
+
+    basketRender();
+    totalRender();
 }
+
 
 const cardRender = () => { 
     sneakers.forEach(sneaker => {
@@ -51,6 +66,8 @@ const basketRender = () => {
      )})
 
 }
+
+
 
 const promoRender = () => {
     promoWrapper.innerHTML = '';
