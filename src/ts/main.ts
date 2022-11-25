@@ -52,11 +52,6 @@ const basketRender = () => {
 
 }
 
-// const discount = () => {
-//     const total = 0;
-//     total 
-// }
-
 const promoRender = () => {
     promoWrapper.innerHTML = '';
     promoWrapper.appendChild(Promo());
