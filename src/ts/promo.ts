@@ -1,18 +1,16 @@
 
 export const Promo = () => {
-    // discount:any
 
     const promo = document.createElement('div');
     const promoTitle = document.createElement('div');
     const inputWrapper = document.createElement('div');
     const promoInput = document.createElement('input');
     const promoButton = document.createElement('button');
+    const form = document.createElement('form');
 
-    // if (promoInput.value === 'bober') {
-    //     const discount = (total:any) => {
-    //         total -= 3
-    //     }
-    // }
+    if ( promoInput.value === '1') {
+        console.log('boberchik');
+    }
 
     promoTitle.innerText = 'Promo code';
     promoButton.innerText = 'Apply';
@@ -22,8 +20,9 @@ export const Promo = () => {
 
     promo.appendChild(promoTitle);
     promo.appendChild(inputWrapper);
-    inputWrapper.appendChild(promoInput);
-    inputWrapper.appendChild(promoButton);
+    inputWrapper.appendChild(form);
+    form.appendChild(promoInput);
+    form.appendChild(promoButton);
 
     promoTitle.classList.add('promo-title');
     promoInput.classList.add('promo-input');
