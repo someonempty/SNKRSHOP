@@ -1,5 +1,5 @@
 
-export const Promo = () => {
+export const Promo = (onDiscount:any) => {
 
     const promo = document.createElement('div');
     const promoTitle = document.createElement('div');
@@ -8,9 +8,11 @@ export const Promo = () => {
     const promoButton = document.createElement('button');
     const form = document.createElement('form');
 
-    if ( promoInput.value === '1') {
-        console.log('boberchik');
-    }
+    promoButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        onDiscount(promoInput.value);
+        promoInput.value = '';
+    })
 
     promoTitle.innerText = 'Promo code';
     promoButton.innerText = 'Apply';
@@ -27,6 +29,7 @@ export const Promo = () => {
     promoTitle.classList.add('promo-title');
     promoInput.classList.add('promo-input');
     promoButton.classList.add('promo-button');
+
 
     return promo;
 }     
