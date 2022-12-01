@@ -1,5 +1,5 @@
 
-     export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any, count:any) => {
+     export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any, count:any, increaseCount:any, decreaseCount:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
@@ -16,6 +16,16 @@
      quantity.innerText = count;
      plus.innerText = '+';
      deleteBasketItem.src="src/icons/delete.svg";
+
+     plus.onclick = (e) => {
+          e.preventDefault();
+          increaseCount();
+     }
+
+     minus.onclick = (e) => {
+          e.preventDefault();
+          decreaseCount();
+     }
 
      basketElement.id = id;
      basketSneakersName.innerHTML = name;

@@ -16,6 +16,12 @@ const sneakers:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage Brights', pri
 
 let basketElements:Sneaker[] = [{id: 1, name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png', count: 1}, {id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1}];
 
+
+
+
+
+// -----------------------------------Функции-----------------------------------
+
 const addBasketItem = (id:number, name:string, price:number, src:string, count:number) => {
 
     const isThereDuplicate = basketElements.some(element => {
@@ -36,7 +42,35 @@ const addBasketItem = (id:number, name:string, price:number, src:string, count:n
         basketRender();
         totalRender();
     }
-    totalRender(300);
+    totalRender();
+}
+
+const increaseCount = (id:number) => {
+    basketElements.forEach(element => {
+        if (element.id === id) {
+            element.count++
+            console.log(element.count);
+            promoRender();
+            totalRender();
+            basketRender();
+        }
+    })
+}
+
+const decreaseCount = (id:number) => {
+    basketElements.forEach(element => {
+        if (element.id === id) {
+            if (element.count === 1) {
+                console.log('1');
+            } else {
+                element.count--
+            console.log(element.count);
+            promoRender();
+            totalRender();
+            basketRender();
+            }
+        }
+    })
 }
 
 const cardRender = () => { 
@@ -48,7 +82,7 @@ const cardRender = () => {
 const basketRender = () => {
     basketList.innerHTML = '';
     basketElements.forEach(sneaker => {
-        basketList.appendChild(BasketElement(sneaker.id, sneaker.name, sneaker.price, sneaker.src, () => deleteBasketItem(sneaker.id), sneaker.count)
+        basketList.appendChild(BasketElement(sneaker.id, sneaker.name, sneaker.price, sneaker.src, () => deleteBasketItem(sneaker.id), sneaker.count, () => increaseCount(sneaker.id), () => decreaseCount(sneaker.id))
      )})
 
 }

@@ -133,6 +133,7 @@ body {
   font-size: 14px;
   line-height: 16px;
   margin-bottom: 15px;
+  width: 202px;
 }
 
 .counter {
@@ -197,7 +198,6 @@ body {
   width: 18px;
   height: 18px;
   cursor: pointer;
-  margin-left: 50px;
 }
 
 .basket-button {
