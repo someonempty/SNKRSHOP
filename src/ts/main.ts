@@ -12,9 +12,20 @@ let promoWrapper: any = document.querySelector('.promo-wrapper');
 let totalWrapper: any = document.querySelector('.total-wrapper');
 const promoCodes = ['boberchik', 'bober', 'bobr'];
 
-const sneakers: Sneaker[] = [{ id: 1, name: 'New Balance 574 Vintage Brights', price: 650, src: 'src/img/vintage.png', count: 1 }, { id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1 }, { id: 3, name: 'New Balance 373 Modern Classics', price: 800, src: 'src/img/classic.png', count: 1 }, { id: 4, name: 'New Balance Made in UK 670 Chinese New Year', price: 780, src: 'src/img/chinese-brown.png', count: 1 }, { id: 5, name: 'New Balance X-Racer Utility', price: 1000, src: 'src/img/racer.png', count: 1 }, { id: 6, name: 'New Balance 5740 Think Colorfully', price: 940, src: 'src/img/colorfully.png', count: 1 }];
+const sneakers: Sneaker[] = [
+    { id: 1, name: 'New Balance 574 Vintage Brights', price: 650, src: 'src/img/vintage.png', count: 1 },
+    { id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1 },
+    { id: 3, name: 'New Balance 373 Modern Classics', price: 800, src: 'src/img/classic.png', count: 1 },
+    { id: 4, name: 'New Balance Made in UK 670 Chinese New Year', price: 780, src: 'src/img/chinese-brown.png', count: 1 },
+    { id: 5, name: 'New Balance X-Racer Utility', price: 1000, src: 'src/img/racer.png', count: 1 },
+    { id: 6, name: 'New Balance 5740 Think Colorfully', price: 940, src: 'src/img/colorfully.png', count: 1 }
+];
 
-let basketElements: Sneaker[] = [{ id: 1, name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png', count: 1 }, { id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1 }];
+let basketElements: Sneaker[] = [
+
+    { id: 1, name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png', count: 1 },
+    { id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1 }
+];
 
 
 
@@ -26,7 +37,6 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
 
     const isThereDuplicate = basketElements.some(element => {
         return element.id === id
-
     })
 
     if (isThereDuplicate) {
@@ -48,10 +58,10 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
 const increaseCount = (id: number) => {
     basketElements.forEach((element) => {
         if (element.id === id) {
-                element.count++
-                promoRender();
-                totalRender();
-                basketRender();
+            element.count++
+            promoRender();
+            totalRender();
+            basketRender();
         }
     })
 }
@@ -59,16 +69,14 @@ const increaseCount = (id: number) => {
 const decreaseCount = (id: number) => {
     basketElements.forEach((element, index) => {
         if (element.id === id) {
-            if (element.count === 1) {
+            if (element.count <= 1) {
                 delete basketElements[index];
                 promoRender();
                 totalRender();
                 basketRender();
-                console.log('boberchik');
             }
-             else {
+            else {
                 element.count--
-                console.log(element.count);
                 promoRender();
                 totalRender();
                 basketRender();
