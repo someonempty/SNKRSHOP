@@ -22,12 +22,9 @@ const sneakers: Sneaker[] = [
 ];
 
 let basketElements: Sneaker[] = [
-
     { id: 1, name: 'New Balance 574 Vintage<br>Brights', price: 650, src: 'src/img/vintage.png', count: 1 },
     { id: 2, name: 'New Balance Made in UK 920 Chinese New Year', price: 1200, src: 'src/img/chinese.png', count: 1 }
 ];
-
-
 
 
 
@@ -36,7 +33,7 @@ let basketElements: Sneaker[] = [
 const addBasketItem = (id: number, name: string, price: number, src: string, count: number) => {
 
     const isThereDuplicate = basketElements.some(element => {
-        return element.id === id
+        return element.id === id;
     })
 
     if (isThereDuplicate) {
@@ -58,7 +55,7 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
 const increaseCount = (id: number) => {
     basketElements.forEach((element) => {
         if (element.id === id) {
-            element.count++
+            element.count++;
             promoRender();
             totalRender();
             basketRender();
@@ -76,7 +73,7 @@ const decreaseCount = (id: number) => {
                 basketRender();
             }
             else {
-                element.count--
+                element.count--;
                 promoRender();
                 totalRender();
                 basketRender();
