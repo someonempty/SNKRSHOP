@@ -38,7 +38,7 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
 
     if (isThereDuplicate) {
         basketElements.forEach(element => {
-            element.id === id ? element.count++ : element
+            element.id === id ? element.count++ : element;
             basketRender();
             totalRender();
         })
@@ -49,7 +49,14 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
         basketRender();
         totalRender();
     }
-    totalRender();
+
+    if (basketElements.length === 1) {
+        totalRender();
+    }
+    else {
+        totalRender(300);
+    }
+    
 }
 
 const increaseCount = (id: number) => {
