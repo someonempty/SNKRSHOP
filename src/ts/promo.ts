@@ -1,5 +1,5 @@
 
-export const Promo = (onDiscount:any) => {
+export const Promo = () => {
 
     const promo = document.createElement('div');
     const promoTitle = document.createElement('div');
@@ -8,11 +8,11 @@ export const Promo = (onDiscount:any) => {
     const promoButton = document.createElement('button');
     const form = document.createElement('form');
 
-    promoButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        onDiscount(promoInput.value);
-        promoInput.value = '';
-    })
+    // promoButton.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     onDiscount(promoInput.value);
+    //     promoInput.value = '';
+    // })
 
     promoTitle.innerText = 'Promo code';
     promoButton.innerText = 'Apply';

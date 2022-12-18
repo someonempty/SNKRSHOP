@@ -54,7 +54,7 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
         totalRender();
     }
     else {
-        totalRender(300);
+        totalRender();
     }
     
 }
@@ -105,26 +105,26 @@ const basketRender = () => {
 
 }
 
-const promoSubmit = (promoCode: any) => {
-    promoCodes.forEach(element => {
-        if (element === promoCode) {
-            return totalRender(300);
-        }
-    })
-}
+// const promoSubmit = (promoCode: any) => {
+//     promoCodes.forEach(element => {
+//         if (element === promoCode) {
+//             return totalRender(300);
+//         }
+//     })
+// }
 
 const promoRender = () => {
     promoWrapper.innerHTML = '';
-    promoWrapper.appendChild(Promo(promoSubmit));
+    promoWrapper.appendChild(Promo())
 }
 
-const totalRender = (discount: number = 0) => {
+const totalRender = () => {
     totalWrapper.innerHTML = '';
     let total: number = 0;
     basketElements.forEach(element => {
         total += element.price * element.count;
     })
-    totalWrapper.appendChild(Total(total - discount));
+    totalWrapper.appendChild(Total(total));
 }
 
 const deleteBasketItem = (id: any) => {
