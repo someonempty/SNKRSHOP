@@ -11,6 +11,7 @@ let basketList: any = document.querySelector('.basket-list');
 let promoWrapper: any = document.querySelector('.promo-wrapper');
 let totalWrapper: any = document.querySelector('.total-wrapper');
 const promoCodes = ['boberchik', 'bober', 'bobr'];
+let discount = 0;
 
 const sneakers: Sneaker[] = [
     { id: 1, name: 'New Balance 574 Vintage Brights', price: 650, src: 'src/img/vintage.png', count: 1 },
@@ -40,21 +41,21 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
         basketElements.forEach(element => {
             element.id === id ? element.count++ : element;
             basketRender();
-            totalRender();
+            totalRender(discount);
         })
     }
     else {
         basketElements.push({ id, name, price, src, count });
         basketList.innerHTML = '';
         basketRender();
-        totalRender();
+        totalRender(discount);
     }
 
     if (basketElements.length === 1) {
-        totalRender();
+        totalRender(discount);
     }
     else {
-        totalRender();
+        totalRender(discount);
     }
     
 }
@@ -64,7 +65,7 @@ const increaseCount = (id: number) => {
         if (element.id === id) {
             element.count++;
             promoRender();
-            totalRender();
+            totalRender(discount);
             basketRender();
         }
     })
@@ -76,13 +77,13 @@ const decreaseCount = (id: number) => {
             if (element.count <= 1) {
                 delete basketElements[index];
                 promoRender();
-                totalRender();
+                totalRender(discount);
                 basketRender();
             }
             else {
                 element.count--;
                 promoRender();
-                totalRender();
+                totalRender(discount);
                 basketRender();
             }
         }
@@ -105,22 +106,29 @@ const basketRender = () => {
 
 }
 
-// const promoSubmit = (promoCode: any) => {
-//     promoCodes.forEach(element => {
-//         if (element === promoCode) {
-//             return totalRender(300);
-//         }
-//     })
-// }
+const promoSubmit = (promoCode: any) => {
+    promoCodes.forEach(element => {
+        if (element === promoCode) {
+            discount = 300;
+            totalRender(discount);
+            
+        } 
+        else {
+            totalRender(discount);
+        }
+    })
+}
 
 const promoRender = () => {
     promoWrapper.innerHTML = '';
-    promoWrapper.appendChild(Promo())
+    promoWrapper.appendChild(Promo(promoSubmit))
 }
 
-const totalRender = () => {
+const totalRender = (discount:any) => {
+
     totalWrapper.innerHTML = '';
     let total: number = 0;
+    total -= discount;
     basketElements.forEach(element => {
         total += element.price * element.count;
     })
@@ -130,7 +138,11 @@ const totalRender = () => {
 const deleteBasketItem = (id: any) => {
     basketElements = basketElements.filter(element => element.id !== id);
     basketRender();
-    totalRender();
+    totalRender(discount);
+    if (basketElements.length === 0) {
+        discount = 0;
+        totalRender(discount);
+    }
 }
 
 const render = () => {
@@ -138,7 +150,7 @@ const render = () => {
     cardRender();
     basketRender();
     promoRender();
-    totalRender();
+    totalRender(discount);
 }
 
 render();

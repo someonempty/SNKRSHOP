@@ -10,7 +10,7 @@
     
     sneakersImage.src = src;
     sneakersName.innerText = name;
-    price.innerText = pricer;
+    price.innerText = '$ ' + pricer.toLocaleString('ru');
     BasketElementButton.onclick = onAdd;
     
     catalogElement.classList.add('catalog-element');

@@ -29,7 +29,7 @@
 
      basketElement.id = id;
      basketSneakersName.innerHTML = name;
-     basketPrice.innerText = '$ ' + (price * count);
+     basketPrice.innerText = '$ ' + (price * count).toLocaleString('ru');
      basketElementImage.src = src;
      deleteBasketItem.onclick = onDelete;
      
