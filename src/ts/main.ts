@@ -7,11 +7,13 @@ import { Promo } from './promo';
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
 const main: any = document.querySelector('.catalog');
+const basketIcon:any = document.querySelector('.basket-icon');
 let basketList: any = document.querySelector('.basket-list');
 let promoWrapper: any = document.querySelector('.promo-wrapper');
 let totalWrapper: any = document.querySelector('.total-wrapper');
 const promoCodes = ['boberchik', 'bober', 'bobr'];
 let discount = 0;
+
 
 const sneakers: Sneaker[] = [
     { id: 1, name: 'New Balance 574 Vintage Brights', price: 650, src: 'src/img/vintage.png', count: 1 },
