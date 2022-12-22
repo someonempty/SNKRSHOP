@@ -7,7 +7,7 @@ import { Promo } from './promo';
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
 const main: any = document.querySelector('.catalog');
-const basketIcon:any = document.querySelector('.basket-icon');
+// const basketIcon:any = document.querySelector('.basket-icon');
 let basketList: any = document.querySelector('.basket-list');
 let promoWrapper: any = document.querySelector('.promo-wrapper');
 let totalWrapper: any = document.querySelector('.total-wrapper');
