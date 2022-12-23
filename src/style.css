@@ -292,17 +292,22 @@ body {
   position: relative;
 }
 
-.basket-icon::after{
-  display: block;
+.basket-icon-counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1px;
+  top: -5px;
   height: 13px;
   width: 13px;
   background-color: #3366FF;
   border-radius: 50%;
-  right: -17px;
-  content: "";
-  position: relative;
-  top: -30px;
   font-size: 10px;
+}
+
+.counter {
+  color: white;
 }
 
 
