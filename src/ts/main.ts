@@ -13,6 +13,7 @@ let promoWrapper: any = document.querySelector('.promo-wrapper');
 let totalWrapper: any = document.querySelector('.total-wrapper');
 const promoCodes = ['boberchik', 'bober', 'bobr'];
 let discount = 0;
+let counter:any = document.querySelector('.counter');
 
 
 const sneakers: Sneaker[] = [
@@ -44,6 +45,7 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
             element.id === id ? element.count++ : element;
             basketRender();
             totalRender(discount);
+            counterRender();
         })
     }
     else {
@@ -51,13 +53,16 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
         basketList.innerHTML = '';
         basketRender();
         totalRender(discount);
+        counterRender();
     }
 
     if (basketElements.length === 1) {
         totalRender(discount);
+        counterRender();
     }
     else {
         totalRender(discount);
+        counterRender();
     }
     
 }
@@ -69,6 +74,7 @@ const increaseCount = (id: number) => {
             promoRender();
             totalRender(discount);
             basketRender();
+            counterRender();
         }
     })
 }
@@ -81,12 +87,14 @@ const decreaseCount = (id: number) => {
                 promoRender();
                 totalRender(discount);
                 basketRender();
+                counterRender();
             }
             else {
                 element.count--;
                 promoRender();
                 totalRender(discount);
                 basketRender();
+                counterRender();
             }
         }
     })
@@ -126,6 +134,10 @@ const promoRender = () => {
     promoWrapper.appendChild(Promo(promoSubmit))
 }
 
+const counterRender = () => {
+    counter.innerHTML = basketElements.length.toString();
+}
+
 const totalRender = (discount:any) => {
 
     totalWrapper.innerHTML = '';
@@ -141,9 +153,11 @@ const deleteBasketItem = (id: any) => {
     basketElements = basketElements.filter(element => element.id !== id);
     basketRender();
     totalRender(discount);
+    counterRender();
     if (basketElements.length === 0) {
         discount = 0;
         totalRender(discount);
+        counterRender();
     }
 }
 
@@ -153,6 +167,7 @@ const render = () => {
     basketRender();
     promoRender();
     totalRender(discount);
+    counterRender();
 }
 
 render();
