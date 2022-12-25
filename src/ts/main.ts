@@ -1,8 +1,10 @@
 import '../style.css';
+import '../media.css';
 import { Card } from './card';
 import { Total } from './total';
 import { BasketElement } from './basket';
 import { Promo } from './promo';
+
 
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
@@ -135,7 +137,7 @@ const promoRender = () => {
 }
 
 const counterRender = () => {
-    counter.innerHTML = basketElements.length.toString();
+    counter.innerHTML = basketElements.reduce((acc, cur) => acc + cur.count, 0);
 }
 
 const totalRender = (discount:any) => {

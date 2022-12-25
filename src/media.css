@@ -5,10 +5,10 @@
 }
 
 @media (max-width: 768px) {
-    .aside {
-        display: none;
+     .main-header .burger {
+        display: block;
     }
-    .basket {
+    .aside {
         display: none;
     }
 }
