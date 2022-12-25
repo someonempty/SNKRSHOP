@@ -35,7 +35,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 60px 170px 233px 170px;
+  padding: 60px 170px 0px 170px;
   width: 1230px;
   border-right: 1px solid #E7E7E7;
   height: 100%;
@@ -77,8 +77,12 @@ body {
 
 
 /* -----------------------------Корзина------------------------- */
+
+.aside {
+  width: 410px;
+}
+
 .basket {
-  width: 450px;
   height: 371px;
   padding: 40px;
   font-family: 'Roboto';
@@ -307,8 +311,8 @@ body {
 }
 
 .counter {
-  margin-bottom: 8px;
-  margin-right: 2px;
+  margin-bottom: 12px;
+  margin-right: 3px;
   color: white;
 }
 
