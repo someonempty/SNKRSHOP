@@ -1,8 +1,13 @@
 
+     // TODO: убрать any
+     // сортировка параметров. сначала примитивы
+     // on для коллбеков
+     // Переименовать файл
      export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any, count:any, increaseCount:any, decreaseCount:any) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
+     // basketSneakersName не отображает функционал
      const basketSneakersName = document.createElement('div');
      const plusWrapper = document.createElement('div');
      const minus = document.createElement('span');
