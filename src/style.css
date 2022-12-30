@@ -3,6 +3,13 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto' sans-serif;
+  background: rgba(0, 0, .5, 0)
+}
+
+html {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
 
 body {
@@ -18,6 +25,64 @@ body {
   align-items: center;
   min-height: 81px;
   border-bottom: 1px solid #CFCFCF;
+}
+
+.basket-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-right: 32px;
+}
+
+.basket-icon-counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+  height: 13px;
+  width: 13px;
+  background-color: #3366FF;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.counter {
+  margin-bottom: 12px;
+  margin-right: 3px;
+  color: white;
+}
+
+ .burger {
+  display: none;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	z-index:2;
+	overflow: hidden;
+}
+
+.burger span {
+	width: 30px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #222222;
+	transition: all 0.5s;
+}
+.burger span:nth-of-type(2) {
+	top: calc(50% - 5px);
+}
+.burger span:nth-of-type(3) {
+	top: calc(50% + 5px);
+}
+
+.icon-burger-wrapper {
+  display: flex;
 }
 
 .main-header img {
@@ -80,6 +145,10 @@ body {
 
 .aside {
   width: 410px;
+}
+
+.aside.active {
+  right: 0;
 }
 
 .basket {
@@ -212,63 +281,6 @@ body {
   cursor: pointer;
 }
 
-.basket-icon {
-  display: block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-}
-
-.basket-icon-counter{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 1px;
-  top: -5px;
-  height: 13px;
-  width: 13px;
-  background-color: #3366FF;
-  border-radius: 50%;
-  font-size: 10px;
-}
-
-.counter {
-  margin-bottom: 12px;
-  margin-right: 3px;
-  color: white;
-}
-
- .burger {
-  display: none;
-	width: 30px;
-	height: 30px;
-	position: relative;
-	z-index:2;
-	overflow: hidden;
-}
-
-.burger span {
-	width: 30px;
-	height: 2px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #222222;
-	transition: all 0.5s;
-}
-.burger span:nth-of-type(2) {
-	top: calc(50% - 5px);
-}
-.burger span:nth-of-type(3) {
-	top: calc(50% + 5px);
-}
-
-/* .icon-burger-wrapper {
-  display: flex;
-  display: none;
-} */
 
 
 
