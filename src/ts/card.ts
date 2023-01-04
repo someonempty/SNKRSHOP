@@ -1,4 +1,4 @@
- 
+ // Переименовать файл
     export const Card = (name:any, pricer:any, src:any, onAdd:any) => {
 
     const priceWrapper = document.createElement('div');

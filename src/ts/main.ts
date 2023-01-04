@@ -4,11 +4,14 @@ import { Card } from './card';
 import { Total } from './total';
 import { BasketElement } from './basket';
 import { Promo } from './promo';
-
+// НАПИСАТЬ ТИПЫ
+// Избавиться от лишних вызовов функций
+// Выделить рендеры в отдельную функцию
+// налог и доставка должны бы в одном файле (мейн)
 
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
-const main: any = document.querySelector('.catalog');
+const main: HTMLElement<> = document.querySelector('.catalog');
 const burger:any = document.querySelector('.burger');
 const aside:any = document.querySelector('.aside');
 let basketList: any = document.querySelector('.basket-list');
@@ -37,6 +40,7 @@ let basketElements: Sneaker[] = [
 
 // -----------------------------------Функции-----------------------------------
 
+// Сократить количество параметров до одного sneaker
 const addBasketItem = (id: number, name: string, price: number, src: string, count: number) => {
 
     const isThereDuplicate = basketElements.some(element => {
@@ -44,6 +48,7 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
     })
 
     if (isThereDuplicate) {
+        // Исправить утечку памяти
         basketElements.forEach(element => {
             element.id === id ? element.count++ : element;
             basketRender();
@@ -53,6 +58,8 @@ const addBasketItem = (id: number, name: string, price: number, src: string, cou
     }
     else {
         basketElements.push({ id, name, price, src, count });
+        // исправить двойную очистку
+
         basketList.innerHTML = '';
         basketRender();
         totalRender(discount);
@@ -105,7 +112,9 @@ const decreaseCount = (id: number) => {
 
 const cardRender = () => {
     sneakers.forEach(sneaker => {
-        main.appendChild(Card(sneaker.name, sneaker.price, sneaker.src, () => addBasketItem(sneaker.id, sneaker.name, sneaker.price, sneaker.src, sneaker.count))
+    
+        main.appendChild(Card(sneaker.name, sneaker.price, sneaker.src, 
+            () => addBasketItem(sneaker.id, sneaker.name, sneaker.price, sneaker.src, sneaker.count))
         )
     })
 }
@@ -154,6 +163,8 @@ const totalRender = (discount:any) => {
 
 const deleteBasketItem = (id: any) => {
     basketElements = basketElements.filter(element => element.id !== id);
+
+    // утечка памяти
     basketRender();
     totalRender(discount);
     counterRender();
