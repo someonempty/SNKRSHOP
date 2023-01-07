@@ -1,14 +1,9 @@
 
-     // TODO: убрать any
-     // сортировка параметров. сначала примитивы
-     // on для коллбеков
-     // Переименовать файл
-     export const BasketElement = (id:any, name:any, price:any, src:any, onDelete:any, count:any, increaseCount:any, decreaseCount:any) => {
+     export const BasketElement = (id:number, name:string, price:number, src:string, count:number, onIncreaseCount:Function, onDecreaseCount:Function, onDelete:Function) => {
 
      const basketElement = document.createElement('div');
      const basketItemInfoWrapper = document.createElement('div');
-     // basketSneakersName не отображает функционал
-     const basketSneakersName = document.createElement('div');
+     const basketSneakerName = document.createElement('div');
      const plusWrapper = document.createElement('div');
      const minus = document.createElement('span');
      const quantity = document.createElement('span');
@@ -18,29 +13,31 @@
      const deleteBasketItem = document.createElement('img');
 
      minus.innerText = '-';
-     quantity.innerText = count;
+     quantity.innerText = count.toString();
      plus.innerText = '+';
      deleteBasketItem.src="src/icons/delete.svg";
 
      plus.onclick = (e) => {
           e.preventDefault();
-          increaseCount();
+          onIncreaseCount();
      }
 
      minus.onclick = (e) => {
           e.preventDefault();
-          decreaseCount();
+          onDecreaseCount();
      }
 
-     basketElement.id = id;
-     basketSneakersName.innerHTML = name;
+     basketElement.id = id.toString();
+     basketSneakerName.innerHTML = name;
      basketPrice.innerText = '$ ' + (price * count).toLocaleString('ru');
      basketElementImage.src = src;
-     deleteBasketItem.onclick = onDelete;
+     deleteBasketItem.addEventListener('click', () => {
+          onDelete();
+     })
      
      basketElement.appendChild(basketElementImage);
      basketElement.appendChild(basketItemInfoWrapper);
-     basketItemInfoWrapper.appendChild(basketSneakersName);
+     basketItemInfoWrapper.appendChild(basketSneakerName);
      basketItemInfoWrapper.appendChild(plusWrapper);
      plusWrapper.appendChild(minus);
      plusWrapper.appendChild(quantity);
@@ -55,7 +52,7 @@
      basketElementImage.classList.add('basket-element-image');
      basketElement.classList.add('basket-element');
      basketItemInfoWrapper.classList.add('basket-item-info-wrapper');
-     basketSneakersName.classList.add('basket-sneakers-name');
+     basketSneakerName.classList.add('basket-sneakers-name');
      plusWrapper.classList.add('plus-wrapper');
      basketPrice.classList.add('price');
 

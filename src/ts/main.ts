@@ -2,12 +2,10 @@ import '../style.css';
 import '../media.css';
 import { Card } from './catalogCard';
 import { Total } from './total';
-import { BasketElement } from './basket';
+import { BasketElement } from './basketElement';
 import { Promo } from './promo';
-// НАПИСАТЬ ТИПЫ
 // Избавиться от лишних вызовов функций
 // Выделить рендеры в отдельную функцию
-// налог и доставка должны бы в одном файле (мейн)
 
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
@@ -53,26 +51,19 @@ const addBasketItem = (sneaker:Sneaker) => {
         // Исправить утечку памяти
         basketElements.forEach(element => {
             element.id === sneaker.id ? element.count++ : element;
-            basketRender();
-            totalRender(discount);
-            counterRender();
+            render();
         })
     }
     else {
         basketElements.push({id: sneaker.id, name: sneaker.name, price: sneaker.price, src: sneaker.src, count: sneaker.count });
-        
-        basketRender();
-        totalRender(discount);
-        counterRender();
+        render();
     }
 
     if (basketElements.length === 1) {
-        totalRender(discount);
-        counterRender();
+        render();
     }
     else {
-        totalRender(discount);
-        counterRender();
+        render();
     }
     
 }
@@ -81,10 +72,7 @@ const increaseCount = (id: number) => {
     basketElements.forEach((element) => {
         if (element.id === id) {
             element.count++;
-            promoRender();
-            totalRender(discount);
-            basketRender();
-            counterRender();
+            render();
         }
     })
 }
@@ -94,10 +82,7 @@ const decreaseCount = (id: number) => {
         if (element.id === id) {
             if (element.count <= 1) {
                 delete basketElements[index];
-                promoRender();
-                totalRender(discount);
-                basketRender();
-                counterRender();
+                render();
             }
             else {
                 element.count--;
@@ -122,7 +107,7 @@ const cardRender = () => {
 const basketRender = () => {
     basketList.innerHTML = '';
     basketElements.forEach(sneaker => {
-        basketList.appendChild(BasketElement(sneaker.id, sneaker.name, sneaker.price, sneaker.src, () => deleteBasketItem(sneaker.id), sneaker.count, () => increaseCount(sneaker.id), () => decreaseCount(sneaker.id))
+        basketList.appendChild(BasketElement(sneaker.id, sneaker.name, sneaker.price, sneaker.src, sneaker.count, () => increaseCount(sneaker.id), () => decreaseCount(sneaker.id), () => deleteBasketItem(sneaker.id))
         )
     })
 
@@ -132,11 +117,11 @@ const promoSubmit = (promoCode:string) => {
     promoCodes.forEach(element => {
         if (element === promoCode) {
             discount = 300;
-            totalRender(discount);
+            render();
             
         } 
         else {
-            totalRender(discount);
+            render();
         }
     })
 }
@@ -164,15 +149,10 @@ const totalRender = (discount:number) => {
 const deleteBasketItem = (id:number) => {
     basketElements = basketElements.filter(element => element.id !== id);
 
-    // утечка памяти
-    basketRender();
-    totalRender(discount);
-    counterRender();
     if (basketElements.length === 0) {
         discount = 0;
-        totalRender(discount);
-        counterRender();
     }
+    render();
 }
 
 const render = () => {
@@ -189,7 +169,6 @@ const render = () => {
 
    burger.addEventListener('click', () => {
     aside.classList.toggle('active')
-    console.log('boberchik')
    })
 
 render();
