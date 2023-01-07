@@ -4,8 +4,6 @@ import { Card } from './catalogCard';
 import { Total } from './total';
 import { BasketElement } from './basketElement';
 import { Promo } from './promo';
-// Избавиться от лишних вызовов функций
-// Выделить рендеры в отдельную функцию
 
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
