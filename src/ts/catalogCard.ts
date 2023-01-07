@@ -1,5 +1,5 @@
- // Переименовать файл
-    export const Card = (name:any, pricer:any, src:any, onAdd:any) => {
+
+    export const Card = (name:string, pricer:number, src:string, onAdd:Function) => {
 
     const priceWrapper = document.createElement('div');
     const catalogElement = document.createElement('div');
@@ -11,7 +11,9 @@
     sneakersImage.src = src;
     sneakersName.innerText = name;
     price.innerText = '$ ' + pricer.toLocaleString('ru');
-    BasketElementButton.onclick = onAdd;
+    BasketElementButton.addEventListener('click', () => {
+        onAdd();
+    })
     
     catalogElement.classList.add('catalog-element');
     sneakersImage.classList.add('sneakers-image');

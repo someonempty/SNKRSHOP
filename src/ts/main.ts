@@ -1,6 +1,6 @@
 import '../style.css';
 import '../media.css';
-import { Card } from './card';
+import { Card } from './catalogCard';
 import { Total } from './total';
 import { BasketElement } from './basket';
 import { Promo } from './promo';
@@ -11,15 +11,17 @@ import { Promo } from './promo';
 
 type Sneaker = { id: number, name: string, price: number, src: string, count: number };
 
-const main: HTMLElement<> = document.querySelector('.catalog');
-const burger:any = document.querySelector('.burger');
-const aside:any = document.querySelector('.aside');
-let basketList: any = document.querySelector('.basket-list');
-let promoWrapper: any = document.querySelector('.promo-wrapper');
-let totalWrapper: any = document.querySelector('.total-wrapper');
+const main:HTMLElement = document.querySelector('.catalog')!;
+const burger:HTMLElement = document.querySelector('.burger')!;
+const aside:HTMLElement = document.querySelector('.aside')!;
+let basketList:HTMLElement = document.querySelector('.basket-list')!;
+let promoWrapper:HTMLElement = document.querySelector('.promo-wrapper')!;
+let totalWrapper:HTMLElement = document.querySelector('.total-wrapper')!;
 const promoCodes = ['boberchik', 'bober', 'bobr'];
 let discount = 0;
-let counter:any = document.querySelector('.counter');
+let counter:HTMLElement = document.querySelector('.counter')!;
+let tax = 100;
+let shipping = 150;
 
 
 const sneakers: Sneaker[] = [
@@ -41,26 +43,24 @@ let basketElements: Sneaker[] = [
 // -----------------------------------Функции-----------------------------------
 
 // Сократить количество параметров до одного sneaker
-const addBasketItem = (id: number, name: string, price: number, src: string, count: number) => {
+const addBasketItem = (sneaker:Sneaker) => {
 
     const isThereDuplicate = basketElements.some(element => {
-        return element.id === id;
+        return element.id === sneaker.id;
     })
 
     if (isThereDuplicate) {
         // Исправить утечку памяти
         basketElements.forEach(element => {
-            element.id === id ? element.count++ : element;
+            element.id === sneaker.id ? element.count++ : element;
             basketRender();
             totalRender(discount);
             counterRender();
         })
     }
     else {
-        basketElements.push({ id, name, price, src, count });
-        // исправить двойную очистку
-
-        basketList.innerHTML = '';
+        basketElements.push({id: sneaker.id, name: sneaker.name, price: sneaker.price, src: sneaker.src, count: sneaker.count });
+        
         basketRender();
         totalRender(discount);
         counterRender();
@@ -114,7 +114,7 @@ const cardRender = () => {
     sneakers.forEach(sneaker => {
     
         main.appendChild(Card(sneaker.name, sneaker.price, sneaker.src, 
-            () => addBasketItem(sneaker.id, sneaker.name, sneaker.price, sneaker.src, sneaker.count))
+            () => addBasketItem(sneaker))
         )
     })
 }
@@ -128,7 +128,7 @@ const basketRender = () => {
 
 }
 
-const promoSubmit = (promoCode: any) => {
+const promoSubmit = (promoCode:string) => {
     promoCodes.forEach(element => {
         if (element === promoCode) {
             discount = 300;
@@ -147,10 +147,10 @@ const promoRender = () => {
 }
 
 const counterRender = () => {
-    counter.innerHTML = basketElements.reduce((acc, cur) => acc + cur.count, 0);
+    counter.innerHTML = basketElements.reduce((acc, cur) => acc + cur.count, 0).toString();
 }
 
-const totalRender = (discount:any) => {
+const totalRender = (discount:number) => {
 
     totalWrapper.innerHTML = '';
     let total: number = 0;
@@ -158,10 +158,10 @@ const totalRender = (discount:any) => {
     basketElements.forEach(element => {
         total += element.price * element.count;
     })
-    totalWrapper.appendChild(Total(total));
+    totalWrapper.appendChild(Total(total, tax, shipping));
 }
 
-const deleteBasketItem = (id: any) => {
+const deleteBasketItem = (id:number) => {
     basketElements = basketElements.filter(element => element.id !== id);
 
     // утечка памяти

@@ -1,5 +1,5 @@
 
-export const Promo = (onDiscount:any) => {
+export const Promo = (onDiscount:Function) => {
 
     const promo = document.createElement('div');
     const promoTitle = document.createElement('div');

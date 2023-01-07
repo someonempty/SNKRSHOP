@@ -50,9 +50,11 @@ body {
 }
 
 .counter {
-  margin-bottom: 12px;
-  margin-right: 3px;
+  margin-bottom: 9px;
+  margin-right: 4px;
   color: white;
+  height: 10%;
+  width: 10%;
 }
 
  .burger {
@@ -207,11 +209,6 @@ body {
   line-height: 16px;
   margin-bottom: 15px;
   width: 202px;
-}
-
-.counter {
-  height: 10%;
-  width: 10%;
 }
 
 .basket-element .basket-element-image{
