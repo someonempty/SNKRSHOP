@@ -12,10 +12,6 @@ html {
   width: 100%;
 }
 
-body {
-  overflow: hidden;
-}
-
 
 /* -----------------------------Шапка------------------------- */
 .main-header {
@@ -40,18 +36,17 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 1px;
+  left: 15px;
   top: -5px;
   height: 13px;
-  width: 13px;
+  min-width: 13px;
   background-color: #3366FF;
   border-radius: 50%;
-  font-size: 10px;
+  font-size: 8px;
+  padding: 0 2px;
 }
 
 .counter {
-  margin-bottom: 12px;
-  margin-right: 3px;
   color: white;
 }
 
@@ -62,6 +57,7 @@ body {
 	position: relative;
 	z-index:2;
 	overflow: hidden;
+  cursor: pointer;
 }
 
 .burger span {
@@ -101,9 +97,9 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 60px 170px 0px 170px;
-  width: 1230px;
+  width: 100%;
   border-right: 1px solid #E7E7E7;
-  height: 100%;
+  height: 100vh;
 }
 
 .catalog-element {
@@ -193,7 +189,7 @@ body {
 .basket-element {
   display: flex;
   height: 100px;
-  width: 330px;
+  width: 305px;
 }
 
 .basket-element:not(:last-child) {
@@ -207,11 +203,6 @@ body {
   line-height: 16px;
   margin-bottom: 15px;
   width: 202px;
-}
-
-.counter {
-  height: 10%;
-  width: 10%;
 }
 
 .basket-element .basket-element-image{
@@ -232,6 +223,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   margin-right: 25px;
+  user-select: none;
 }
 
 .minus {
@@ -245,6 +237,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   margin-right: 17px;
+  user-select: none;
 }
 
 .plus-wrapper {
