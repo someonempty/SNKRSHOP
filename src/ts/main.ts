@@ -116,7 +116,6 @@ const promoSubmit = (promoCode:string) => {
         if (element === promoCode) {
             discount = 300;
             render();
-            
         } 
         else {
             render();
